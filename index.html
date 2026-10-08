@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allan de Castro — Carta Celeste & Portfólio de Engenharia</title>
+  
+  <!-- Fontes de alta precisão técnica e legibilidade editorial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Canvas da Carta Celeste -->
+  <canvas id="starChartCanvas"></canvas>
+
+  <!-- Barra de Controle Superior (Estilo Painel Técnico) -->
+  <header class="top-bar">
+    <div class="identity">
+      <span class="catalog-code">CAT-DEV // 2026</span>
+      <h1 class="pilot-name">ALLAN DE CASTRO</h1>
+      <span class="role-title">Engenheiro de Software & IA</span>
+    </div>
+
+    <!-- Navegação Direta por Setores do Mapa -->
+    <nav class="constellation-nav" id="constellationNav">
+      <!-- Injetado dinamicamente -->
+    </nav>
+
+    <div class="quick-actions">
+      <button class="tool-btn" id="btnZoomIn" title="Aproximar (+)">
+        <i class="fas fa-plus"></i>
+      </button>
+      <button class="tool-btn" id="btnZoomOut" title="Afastar (-)">
+        <i class="fas fa-minus"></i>
+      </button>
+      <button class="tool-btn" id="btnReset" title="Restaurar Visão Padrão">
+        <i class="fas fa-crosshairs"></i> Centralizar
+      </button>
+    </div>
+  </header>
+
+  <!-- Rodapé Técnico de Coordenadas & Telemetria -->
+  <footer class="telemetry-bar">
+    <div class="telemetry-item">
+      <span class="label">SISTEMA:</span>
+      <span class="val">CARTA CELESTE TOPOGRÁFICA</span>
+    </div>
+    <div class="telemetry-item">
+      <span class="label">COORD:</span>
+      <span class="val" id="telemetryCoords">RA 00h 00m / DEC +00°</span>
+    </div>
+    <div class="telemetry-item">
+      <span class="label">ZOOM:</span>
+      <span class="val" id="telemetryZoom">1.00x</span>
+    </div>
+    <div class="telemetry-item hint">
+      <span class="val">Clique em qualquer constelação ou use o menu superior para inspecionar</span>
+    </div>
+  </footer>
+
+  <!-- Painel Lateral Técnico / Inspector de Detalhes -->
+  <aside class="detail-drawer" id="detailDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-meta">
+        <span class="catalog-badge" id="drawerSectorCode">SECTOR-01</span>
+        <span class="catalog-type" id="drawerCategory">CATEGORIA</span>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Fechar Painel">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <h2 class="drawer-title" id="drawerTitle">Título da Constelação</h2>
+      <p class="drawer-subtitle" id="drawerSubtitle">Subtítulo e contextualização técnica</p>
+
+      <div class="drawer-body" id="drawerBody">
+        <!-- Detalhes injetados via JavaScript -->
+      </div>
+
+      <div class="drawer-section">
+        <h3 class="section-label">STACK & FERRAMENTAS</h3>
+        <div class="tech-tags" id="drawerTechs"></div>
+      </div>
+
+      <div class="drawer-section" id="drawerLinksSection">
+        <h3 class="section-label">LINKS & REFERÊNCIAS</h3>
+        <div class="links-list" id="drawerLinks"></div>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <button class="nav-arrow-btn" id="btnPrevConstellation">
+        <i class="fas fa-arrow-left"></i> Anterior
+      </button>
+      <button class="nav-arrow-btn" id="btnNextConstellation">
+        Próxima <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
